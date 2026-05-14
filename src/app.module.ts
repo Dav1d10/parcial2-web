@@ -6,6 +6,8 @@ import { UsersModule } from './users/users.module';
 import { RolesModule } from './roles/roles.module';
 import { User } from './users/entities/user.entity';
 import { Role } from './roles/entities/role.entity';
+import { Appointment } from './appointments/entities/appointment.entity';
+import { AppointmentsModule } from './appointments/appointments.module';
 
 @Module({
   imports: [
@@ -20,13 +22,14 @@ import { Role } from './roles/entities/role.entity';
         username: config.get('DB_USER'),
         password: config.get('DB_PASS'),
         database: config.get('DB_NAME'),
-        entities: [User, Role],
+        entities: [User, Role, Appointment],
         synchronize: false,
       }),
     }),
     AuthModule,
     UsersModule,
     RolesModule,
+    AppointmentsModule,
   ],
 })
 export class AppModule {}

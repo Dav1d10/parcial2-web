@@ -5,8 +5,10 @@ import {
   ManyToMany,
   CreateDateColumn,
   JoinTable,
+  OneToMany,
 } from 'typeorm';
 import { Role } from '../../roles/entities/role.entity';
+import { Appointment } from '../../appointments/entities/appointment.entity';
 
 @Entity('users')
 export class User {
@@ -38,4 +40,7 @@ export class User {
     inverseJoinColumn: { name: 'role_id' },
   })
   roles!: Role[];
+
+  @OneToMany(() => Appointment, (appointment) => appointment.user)
+  appointments!: Appointment[];
 }
