@@ -6,7 +6,7 @@ VALUES
 ON CONFLICT (role_name) DO NOTHING;
 
 -- Insertar usuario admin de prueba
--- password: Admin123! (hasheada con bcrypt)
+-- password: password (hasheada con bcrypt, salt 10)
 INSERT INTO users (email, password, name, phone, is_active)
 VALUES (
   'admin@test.com',
@@ -18,6 +18,7 @@ VALUES (
 ON CONFLICT (email) DO NOTHING;
 
 -- Insertar usuario normal de prueba
+-- password: password (hasheada con bcrypt, salt 10)
 INSERT INTO users (email, password, name, is_active)
 VALUES (
   'doctor@test.com',
