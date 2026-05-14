@@ -32,6 +32,8 @@ export class RolesController {
     return this.rolesService.findAll();
   }
 
+  /*
+
   @Get(':id')
   findOne(@Param('id') id: string) {
     return this.rolesService.findOne(+id);
@@ -46,4 +48,6 @@ export class RolesController {
   remove(@Param('id') id: string) {
     return this.rolesService.remove(+id);
   }
+
+  */
 }
